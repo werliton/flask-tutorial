@@ -10,7 +10,7 @@ def init_db():
         db.executescript(f.read().decode('utf8'))
 
 def init_app(app):
-    app.teardwn_appcontext(close_db)
+    app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
 
 
